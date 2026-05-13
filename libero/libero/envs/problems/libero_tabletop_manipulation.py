@@ -20,7 +20,7 @@ class Libero_Tabletop_Manipulation(BDDLBaseDomain):
         # For z offset of environment fixtures
         self.z_offset = 0.01 - self.table_full_size[2]
         kwargs.update(
-            {"robots": [f"Mounted{robot_name}" for robot_name in kwargs["robots"]]}
+            {"robots": [f"Mounted{robot_name}" if robot_name == "Panda" else f"{robot_name}" for robot_name in kwargs["robots"]]}
         )
         kwargs.update({"workspace_offset": self.table_offset})
         kwargs.update({"arena_type": "table"})
@@ -36,7 +36,6 @@ class Libero_Tabletop_Manipulation(BDDLBaseDomain):
                     }
                 }
             )
-
         super().__init__(bddl_file_name, *args, **kwargs)
 
     def _load_fixtures_in_arena(self, mujoco_arena):

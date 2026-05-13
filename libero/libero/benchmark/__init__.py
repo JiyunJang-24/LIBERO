@@ -113,10 +113,10 @@ class Benchmark(abc.ABC):
         self.task_order_index = task_order_index
 
     def _make_benchmark(self):
-        tasks = list(task_maps[self.name].values())
+        tasks = list(task_maps[self.name].values()) # get the tasks in the task suite
         if self.name == "libero_90":
             self.tasks = tasks
-        else:
+        else:   # shuffle the tasks, use the predefined task orders
             print(f"[info] using task orders {task_orders[self.task_order_index]}")
             self.tasks = [tasks[i] for i in task_orders[self.task_order_index]]
         self.n_tasks = len(self.tasks)

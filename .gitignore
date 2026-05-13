@@ -16,3 +16,9 @@ logs/
 *.mp4
 libero.egg-info/
 .vscode/
+
+
+# xyg add
+dataset/
+xyg_scripts/image*/
+xyg_scripts/debug*

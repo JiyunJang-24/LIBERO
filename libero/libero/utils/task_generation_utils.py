@@ -65,7 +65,6 @@ def generate_bddl_from_task_info(folder="/tmp/pddl"):
             objects_of_interest = task_info_tuple.objects_of_interest
             goal_states = task_info_tuple.goal_states
             scene = get_scene_class(scene_name)()
-
             try:
                 result = get_suite_generator_func(scene.workspace_name)(
                     language=language,

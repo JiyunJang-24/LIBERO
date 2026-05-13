@@ -1,0 +1,99 @@
+(define (problem LIBERO_Kitchen_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language libero demo behaviors)
+    (:regions
+      (wooden_cabinet_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.01 -0.31 0.01 -0.29)
+            )
+          )
+          (:yaw_rotation (
+              (3.141592653589793 3.141592653589793)
+            )
+          )
+      )
+      (libero_mug_yellow_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.225 -0.025 0.275 0.025)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (alphabet_soup_init_region_x
+          (:target kitchen_table)
+          (:ranges (
+              (-0.025 -0.025 0.025 0.025)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (alphabet_soup_init_region_y
+          (:target kitchen_table)
+          (:ranges (
+              (-0.125 0.125 -0.07500000000000001 0.175)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (alphabet_soup_init_region_z
+          (:target kitchen_table)
+          (:ranges (
+              (-0.225 0.27499999999999997 -0.17500000000000002 0.325)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (top_side
+          (:target wooden_cabinet_1)
+      )
+      (top_region
+          (:target wooden_cabinet_1)
+      )
+      (middle_region
+          (:target wooden_cabinet_1)
+      )
+      (bottom_region
+          (:target wooden_cabinet_1)
+      )
+    )
+
+  (:fixtures
+    kitchen_table - kitchen_table
+    wooden_cabinet_1 - wooden_cabinet
+  )
+
+  (:objects
+    libero_mug_yellow_1 - libero_mug_yellow
+    alphabet_soup_1 alphabet_soup_2 alphabet_soup_3 - alphabet_soup
+  )
+
+  (:obj_of_interest
+  )
+
+  (:init
+    (On libero_mug_yellow_1 kitchen_table_libero_mug_yellow_init_region)
+    (On alphabet_soup_1 kitchen_table_alphabet_soup_init_region_x)
+    (On alphabet_soup_2 kitchen_table_alphabet_soup_init_region_y)
+    (On alphabet_soup_3 kitchen_table_alphabet_soup_init_region_z)
+    (On wooden_cabinet_1 kitchen_table_wooden_cabinet_init_region)
+  )
+
+  (:goal
+    (And (Open wooden_cabinet_1_top_region) (In libero_mug_yellow_1 wooden_cabinet_1_top_region))
+  )
+
+)

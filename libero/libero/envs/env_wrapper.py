@@ -48,12 +48,11 @@ class ControlEnv:
 
         problem_info = BDDLUtils.get_problem_info(bddl_file_name)
         # Check if we're using a multi-armed environment and use env_configuration argument if so
-
         # Create environment
         self.problem_name = problem_info["problem_name"]
         self.domain_name = problem_info["domain_name"]
         self.language_instruction = problem_info["language_instruction"]
-        self.env = TASK_MAPPING[self.problem_name](
+        self.env = TASK_MAPPING[self.problem_name](     # 完全就是 init 的参数传给 TASK_MAPPING 中对应的
             bddl_file_name,
             robots=robots,
             controller_configs=controller_configs,
